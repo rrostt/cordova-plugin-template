@@ -1,6 +1,6 @@
-#import "CDVMyDevice.h"
+#import "CDVMyPlugin.h"
 
-@implementation CDVMyDevice
+@implementation CDVMyPlugin
 
 - (void)ping:(CDVInvokedUrlCommand*)command
 {
