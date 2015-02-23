@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="me.rost.myplugin" version="0.0.1">
+    <name>MyPlugin</name>
+    <description>Empty Plugin</description>
+    <keywords></keywords>
+
+    <js-module src="www/myplugin.js" name="myplugin">
+        <clobbers target="myplugin" />  <!-- this puts the plugin in window.myplugin -->
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="MyPlugin">
+                <param name="ios-package" value="CDVMyPlugin"/>
+            </feature>
+        </config-file>
+        <header-file src="src/ios/CDVMyPlugin.h" />
+        <source-file src="src/ios/CDVMyPlugin.m" />
+    </platform>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MyPlugin" >
+                <param name="android-package" value="me.rost.myplugin.MyPlugin"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/MyPlugin.java" target-dir="src/me/rost/myplugin/" />
+    </platform>
+
+    <platform name="browser">
+        <config-file target="config.xml" parent="/*">
+            <feature name="MyPlugin">
+                <param name="browser-package" value="MyPlugin" />
+            </feature>
+        </config-file>
+
+        <js-module src="src/browser/MyPluginProxy.js" name="MyPluginProxy">
+            <runs />
+        </js-module>
+    </platform>
+</plugin>
